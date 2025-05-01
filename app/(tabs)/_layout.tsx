@@ -8,7 +8,7 @@ import Animated, {
   withSpring,
 } from "react-native-reanimated";
 
-// Definición de tipos para las opciones de tema
+// Theme color type definition
 type ThemeColors = {
   primary: string;
   background: string;
@@ -19,7 +19,7 @@ type ThemeColors = {
   tabIconActive: string;
 };
 
-// Temas para modo claro y oscuro
+// Themes for light and dark mode
 const themes = {
   light: {
     primary: "#4872f6",
@@ -41,7 +41,7 @@ const themes = {
   },
 };
 
-// Componente para el botón de Tab con animación
+// Animated Tab Button component
 function AnimatedTabButton({
   onPress,
   focused,
@@ -65,7 +65,7 @@ function AnimatedTabButton({
     };
   });
 
-  // Efecto de animación al presionar
+  // Animation effect on press
   const handlePressIn = () => {
     scale.value = withSpring(0.9);
   };
@@ -112,7 +112,7 @@ export default function TabLayout() {
     colorScheme === "dark" ? themes.dark : themes.light,
   );
 
-  // Actualizar colores cuando cambie el modo de color
+  // Update colors when color mode changes
   useEffect(() => {
     setColors(colorScheme === "dark" ? themes.dark : themes.light);
   }, [colorScheme]);
@@ -120,16 +120,16 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={({ route, navigation }) => ({
-        // Estilos del header
+        // Header styles
         headerStyle: {
           backgroundColor: colors.background,
-          elevation: 0, // Para Android
-          shadowOpacity: 0, // Para iOS
+          elevation: 0, // For Android
+          shadowOpacity: 0, // For iOS
         },
         headerShadowVisible: false,
         headerTintColor: colors.text,
 
-        // Estilos del tabBar
+        // TabBar styles
         tabBarStyle: {
           backgroundColor: colors.card,
           borderTopWidth: 1,
@@ -139,10 +139,10 @@ export default function TabLayout() {
           paddingTop: 5,
         },
 
-        // Sin etiquetas de texto predeterminadas (las manejamos en TabButton)
+        // No default text labels (we handle them in TabButton)
         tabBarShowLabel: false,
 
-        // Componente personalizado para los tabs
+        // Custom component for tabs
         tabBarButton: (props) => {
           const { onPress, accessibilityState } = props;
           const focused = accessibilityState?.selected || false;
@@ -192,8 +192,20 @@ export default function TabLayout() {
       <Tabs.Screen
         name="about"
         options={{
-          title: "About",
+          title: "React Native & Expo Tutorial",
           headerShown: true,
+          headerTitleAlign: "center",
+          headerStyle: {
+            backgroundColor:
+              colors.primary === "#ffd33d" ? "#1a1d20" : "#f0f0f0",
+          },
+          headerTitleStyle: {
+            color: colors.primary === "#ffd33d" ? "#ffffff" : "#333333",
+            fontSize: 18,
+            fontWeight: "bold",
+            fontFamily: "Roboto",
+          },
+          headerTintColor: colors.primary === "#ffd33d" ? "#ffffff" : "#333333",
         }}
       />
     </Tabs>
