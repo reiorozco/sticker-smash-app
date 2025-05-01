@@ -278,7 +278,7 @@ const styles = StyleSheet.create({
   },
   developerEmail: {
     color: "#ffd33d",
-    fontSize: 1,
+    fontSize: 16,
   },
   copyright: {
     color: "#888",
