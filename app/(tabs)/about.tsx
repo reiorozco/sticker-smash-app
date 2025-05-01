@@ -213,79 +213,79 @@ const styles = StyleSheet.create({
     backgroundColor: "#1c1e22",
   },
   developerDetails: {
-    flex: ,
+    flex: 1,
   },
   developerEmail: {
     color: "#ffd33d",
-    fontSize: 16
+    fontSize: 16,
   },
   developerInfo: {
     alignItems: "center",
     flexDirection: "row",
-    marginBottom: 20
+    marginBottom: 20,
   },
   developerName: {
     color: "#fff",
     fontSize: 18,
     fontWeight: "bold",
-    marginBottom: 5
+    marginBottom: 5,
   },
   expandedTopic: {
-    backgroundColor: "#2d3236"
+    backgroundColor: "#2d3236",
   },
   logo: {
     height: 50,
     marginRight: 15,
-    width: 50
+    width: 50,
   },
   paragraph: {
     color: "#e0e0e0",
     fontSize: 16,
     lineHeight: 24,
-    marginBottom: 10
+    marginBottom: 10,
   },
   scrollView: {
-    flex: 1
+    flex: 1,
   },
   section: {
     borderBottomColor: "#333",
     borderBottomWidth: 1,
-    padding: 20
+    padding: 20,
   },
   sectionTitle: {
     color: "#ffd33d",
     fontSize: 22,
     fontWeight: "bold",
-    marginBottom: 15
+    marginBottom: 15,
   },
   techContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
-    marginTop: 10
+    marginTop: 1,
   },
   techItem: {
     alignItems: "center",
-    padding: 10
+    padding: 10,
   },
   techLogo: {
     height: 40,
-    width: 40
+    width: 40,
   },
   techName: {
     color: "#ddd",
     fontSize: 14,
-    marginTop: 8
+    marginTop: 8,
   },
   topicDescription: {
     color: "#bbb",
     fontSize: 14,
     lineHeight: 20,
     marginTop: 10,
-    paddingLeft: 34
+    paddingLeft: 3,
   },
   topicHeader: {
     alignItems: "center",
-    flexDirection: "row"
+    flexDirection: "row",
   },
   topicItem: {
     backgroundColor: "#333940",
@@ -296,15 +296,15 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
-    shadowRadius: 3
+    shadowRadius: 3,
   },
   topicText: {
     color: "#fff",
     flex: 1,
     fontSize: 15,
-    lineHeight: 22
+    lineHeight: 2,
   },
   topicsContainer: {
-    marginTop: 5
+    marginTop: 5,
   },
 });
