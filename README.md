@@ -1,50 +1,44 @@
-# Welcome to your Expo app 👋
+# StickerSmash
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A fun React Native app built with Expo that allows users to create and customize stickers. This project was created as
+part of a tutorial to demonstrate the fundamental concepts of building cross-platform mobile applications with React
+Native and Expo.
 
-## Get started
+## Features
 
-1. Install dependencies
+- Select images from your device's media library
+- Add emoji stickers to customize your images
+- Drag, resize, and position stickers with intuitive touch gestures
+- Save your creations to your device's gallery
+- Cross-platform support for iOS, Android, and web
 
-   ```bash
-   npm install
-   ```
+## Technologies
 
-2. Start the app
+- React Native
+- Expo SDK
+- TypeScript
+- React Navigation (Expo Router)
+- Reanimated for smooth animations
+- Image manipulation libraries
 
-   ```bash
-    npx expo start
-   ```
+## Learning Goals
 
-In the output, you'll find options to open the app in a
+This project covers essential concepts including:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- Building interfaces with React Native components
+- Managing app navigation with Expo Router
+- Implementing touch gestures and animations
+- Accessing device features (media library, saving images)
+- Handling platform-specific differences
+- Setting up app customization (status bar, splash screen, app icon)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Getting Started
 
-## Get a fresh project
+1. Clone this repository
+2. Install dependencies with `npm install`
+3. Start the development server with `npx expo start`
+4. Scan the QR code with Expo Go (Android) or the Camera app (iOS)
 
-When you're ready, run:
+## Credits
 
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Created by Rei Orozco (rfoc15@gmail.com) as part of the Expo learning path.
