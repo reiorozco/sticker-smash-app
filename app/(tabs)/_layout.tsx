@@ -177,8 +177,15 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
+          title: "Sticker Smash",
           headerShown: true,
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            color: colors.text,
+            fontSize: 20,
+            fontWeight: "bold",
+            fontFamily: "Roboto",
+          },
         }}
       />
 
