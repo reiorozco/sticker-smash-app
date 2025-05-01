@@ -1,15 +1,11 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import {
-  Animated,
   Image,
   Linking,
-  NativeScrollEvent,
-  NativeSyntheticEvent,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
-  useWindowDimensions,
   View,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
@@ -18,15 +14,7 @@ import { Ionicons } from "@expo/vector-icons";
 const ExpoIcon = require("@/assets/images/expo-icon.png");
 
 export default function AboutScreen() {
-  const { width } = useWindowDimensions();
-  const scrollY = useRef(new Animated.Value(0)).current;
   const [expanded, setExpanded] = useState<Record<number, boolean>>({});
-
-  // Handle scroll event manually instead of using Animated.event
-  const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-    const offsetY = event.nativeEvent.contentOffset.y;
-    scrollY.setValue(offsetY);
-  };
 
   // List of topics covered in the tutorial
   const topics = [
@@ -59,8 +47,6 @@ export default function AboutScreen() {
       <ScrollView
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
-        onScroll={handleScroll}
-        scrollEventThrottle={16}
       >
         {/* Introduction */}
         <View style={styles.section}>
@@ -90,14 +76,9 @@ export default function AboutScreen() {
                 style={[
                   styles.topicItem,
                   expanded[index] && styles.expandedTopic,
-                  { maxWidth: width - 40 }, // Adjustment for small screens
                 ]}
                 onPress={() => toggleExpanded(index)}
                 activeOpacity={0.7}
-                accessible={true}
-                accessibilityLabel={`Topic ${index + 1}: ${topic}`}
-                accessibilityRole="button"
-                accessibilityHint="Tap to expand description"
               >
                 <View style={styles.topicHeader}>
                   <Ionicons
@@ -161,13 +142,7 @@ export default function AboutScreen() {
             </View>
             <View style={styles.developerDetails}>
               <Text style={styles.developerName}>Rei Orozco</Text>
-              <TouchableOpacity
-                onPress={handleEmailPress}
-                accessible={true}
-                accessibilityLabel="Email: rfoc15@gmail.com"
-                accessibilityRole="link"
-                accessibilityHint="Tap to send an email"
-              >
+              <TouchableOpacity onPress={handleEmailPress}>
                 <Text style={styles.developerEmail}>rfoc15@gmail.com</Text>
               </TouchableOpacity>
             </View>
@@ -182,71 +157,16 @@ export default function AboutScreen() {
 }
 
 const styles = StyleSheet.create({
-  avatarContainer: {
-    alignItems: "center",
-    backgroundColor: "#ffd33d",
-    borderRadius: 30,
-    height: 60,
-    justifyContent: "center",
-    marginRight: 15,
-    width: 60,
-  },
-  avatarText: {
-    color: "#25292e",
-    fontSize: 24,
-    fontWeight: "bold",
-  },
-  checkIcon: {
-    marginRight: 10,
-  },
+  // Container styles
   container: {
     backgroundColor: "#25292e",
     flex: 1,
   },
-  copyright: {
-    color: "#888",
-    fontSize: 14,
-    marginTop: 15,
-    textAlign: "center",
-  },
-  creditsSection: {
-    backgroundColor: "#1c1e22",
-  },
-  developerDetails: {
-    flex: 1,
-  },
-  developerEmail: {
-    color: "#ffd33d",
-    fontSize: 16,
-  },
-  developerInfo: {
-    alignItems: "center",
-    flexDirection: "row",
-    marginBottom: 20,
-  },
-  developerName: {
-    color: "#fff",
-    fontSize: 18,
-    fontWeight: "bold",
-    marginBottom: 5,
-  },
-  expandedTopic: {
-    backgroundColor: "#2d3236",
-  },
-  logo: {
-    height: 50,
-    marginRight: 15,
-    width: 50,
-  },
-  paragraph: {
-    color: "#e0e0e0",
-    fontSize: 16,
-    lineHeight: 24,
-    marginBottom: 10,
-  },
   scrollView: {
     flex: 1,
   },
+
+  // Section styles
   section: {
     borderBottomColor: "#333",
     borderBottomWidth: 1,
@@ -258,10 +178,57 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 15,
   },
+  paragraph: {
+    color: "#e0e0e0",
+    fontSize: 16,
+    lineHeight: 24,
+    marginBottom: 10,
+  },
+
+  // Topic styles
+  topicsContainer: {
+    marginTop: 5,
+  },
+  topicItem: {
+    backgroundColor: "#333940",
+    borderRadius: 10,
+    marginBottom: 10,
+    padding: 15,
+    elevation: 2,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+  },
+  expandedTopic: {
+    backgroundColor: "#2d3236",
+  },
+  topicHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  checkIcon: {
+    marginRight: 10,
+  },
+  topicText: {
+    color: "#fff",
+    flex: 1,
+    fontSize: 15,
+    lineHeight: 22,
+  },
+  topicDescription: {
+    color: "#bbb",
+    fontSize: 14,
+    lineHeight: 20,
+    marginTop: 10,
+    paddingLeft: 34,
+  },
+
+  // Technology section styles
   techContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
-    marginTop: 1,
+    marginTop: 10,
   },
   techItem: {
     alignItems: "center",
@@ -276,35 +243,47 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: 8,
   },
-  topicDescription: {
-    color: "#bbb",
-    fontSize: 14,
-    lineHeight: 20,
-    marginTop: 10,
-    paddingLeft: 3,
+
+  // Credits section styles
+  creditsSection: {
+    backgroundColor: "#1c1e22",
   },
-  topicHeader: {
-    alignItems: "center",
+  developerInfo: {
     flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 20,
   },
-  topicItem: {
-    backgroundColor: "#333940",
-    borderRadius: 10,
-    elevation: 2,
-    marginBottom: 10,
-    padding: 15,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 3,
+  avatarContainer: {
+    backgroundColor: "#ffd33d",
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: 15,
   },
-  topicText: {
-    color: "#fff",
+  avatarText: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#25292e",
+  },
+  developerDetails: {
     flex: 1,
-    fontSize: 15,
-    lineHeight: 2,
   },
-  topicsContainer: {
-    marginTop: 5,
+  developerName: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#fff",
+    marginBottom: 5,
+  },
+  developerEmail: {
+    color: "#ffd33d",
+    fontSize: 1,
+  },
+  copyright: {
+    color: "#888",
+    fontSize: 14,
+    textAlign: "center",
+    marginTop: 15,
   },
 });
