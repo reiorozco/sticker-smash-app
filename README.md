@@ -1,44 +1,52 @@
-# StickerSmash
+<h1 align="center">🎨 StickerSmash</h1>
 
-A fun React Native app built with Expo that allows users to create and customize stickers. This project was created as
-part of a tutorial to demonstrate the fundamental concepts of building cross-platform mobile applications with React
-Native and Expo.
+<p align="center">
+  A fun React Native (Expo) app to create and customize images with stickers.
+</p>
 
-## Features
+<p align="center">
+  <img src="https://img.shields.io/badge/React_Native-61DAFB?style=for-the-badge&logo=react&logoColor=black"/>
+  <img src="https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo&logoColor=white"/>
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"/>
+  <img src="https://img.shields.io/badge/license-MIT-green?style=for-the-badge"/>
+</p>
 
-- Select images from your device's media library
-- Add emoji stickers to customize your images
-- Drag, resize, and position stickers with intuitive touch gestures
-- Save your creations to your device's gallery
-- Cross-platform support for iOS, Android, and web
+## ✨ Features
 
-## Technologies
+- 🖼️ Pick an image from the device library
+- 😀 Add and drag emoji/stickers onto the image
+- 💾 Save the composed image to the gallery
+- 📱 Runs on iOS, Android and Web (Expo Router)
+- ✨ Gestures and animations with Reanimated & Gesture Handler
 
-- React Native
-- Expo SDK
-- TypeScript
-- React Navigation (Expo Router)
-- Reanimated for smooth animations
-- Image manipulation libraries
+## 🛠️ Tech Stack
 
-## Learning Goals
+- **Core:** React Native · Expo (Expo Router) · TypeScript
+- **Navigation:** Expo Router · React Navigation
+- **Media:** Expo Image Picker · Media Library · View Shot
+- **UX:** Reanimated · Gesture Handler · Expo Haptics
 
-This project covers essential concepts including:
+## 🚀 Getting Started
 
-- Building interfaces with React Native components
-- Managing app navigation with Expo Router
-- Implementing touch gestures and animations
-- Accessing device features (media library, saving images)
-- Handling platform-specific differences
-- Setting up app customization (status bar, splash screen, app icon)
+### Prerequisites
+- Node.js 18+
+- [Expo Go](https://expo.dev/go) app or an emulator
 
-## Getting Started
+### Installation & run
+```bash
+git clone https://github.com/reiorozco/sticker-smash-app.git
+cd sticker-smash-app
+npm install
+npm start        # start Expo dev server
+npm run android  # open on Android
+npm run ios      # open on iOS
+npm run web      # open in browser
+```
 
-1. Clone this repository
-2. Install dependencies with `npm install`
-3. Start the development server with `npx expo start`
-4. Scan the QR code with Expo Go (Android) or the Camera app (iOS)
+## 📸 Screenshots
 
-## Credits
+> _Add screenshots or a screen-recording GIF of the app here._
 
-Created by Rei Orozco (rfoc15@gmail.com) as part of the Expo learning path.
+## 📄 License
+
+Released under the [MIT License](LICENSE).
